@@ -1,0 +1,84 @@
+{
+  "info": {
+    "name": "FibonacciMemo Test Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Test collection for Fibonacci with memoization to observe cache behavior and cold start effects."
+  },
+  "item": [
+    {
+      "name": "Test 1 - First call (nth=35)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nth\": 35\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/FibonacciMemo",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "FibonacciMemo"]
+        }
+      }
+    },
+    {
+      "name": "Test 2 - Second call same value (should use cache)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nth\": 35\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/FibonacciMemo",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "FibonacciMemo"]
+        }
+      }
+    },
+    {
+      "name": "Test 3 - Higher value (nth=40)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nth\": 40\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/FibonacciMemo",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "FibonacciMemo"]
+        }
+      }
+    },
+    {
+      "name": "Test 4 - After 5 min inactivity (nth=35)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nth\": 35\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/FibonacciMemo",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "FibonacciMemo"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "https://REPLACE_WITH_FUNCTION.azurewebsites.net"}
+  ]
+}

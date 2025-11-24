@@ -1,0 +1,6 @@
+.idea/
+.vscode/
+FunctionProject/node_modules/
+.env
+loadtest/node_modules/
+loadtest/reports/

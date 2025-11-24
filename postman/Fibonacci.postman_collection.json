@@ -1,0 +1,30 @@
+{
+  "info": {
+    "name": "Fibonacci Function Load Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Collection to exercise Azure Function Fibonacci endpoint. Uses baseUrl variable injected via environment in newman script."
+  },
+  "item": [
+    {
+      "name": "Compute Fibonacci",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nth\": 35\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/Fibonacci",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "Fibonacci"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "https://REPLACE_WITH_FUNCTION.azurewebsites.net"}
+  ]
+}
